@@ -6,10 +6,7 @@ import {
   ButtonTypes
 } from "../../components/index";
 import { useDispatch, useSelector } from "react-redux";
-import { User } from "../../types/User";
-import { loginUser } from "../../store/userActions";
 import { RootStateType } from "../../store/index";
-import { Redirect } from "react-router-dom";
 import Api from "../../Utils/FakeApi";
 import "./MarketRegister.styles.css";
 

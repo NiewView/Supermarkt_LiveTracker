@@ -7,7 +7,8 @@ import {
   Home,
   MarketRegister,
   UpdateStatus,
-  Information
+  Information,
+  Splash
 } from "./pages/index";
 import { useDispatch, useSelector } from "react-redux";
 import { addMarkets } from "./store/marketActions";
@@ -31,22 +32,29 @@ export const App = () => {
       <div>
         <Switch>
           <Route exact path='/'>
+            <Splash />
+          </Route>
+          <Route exact path='/home'>
             <Home />
+            <Navbar />
           </Route>
           <Route path='/about'>
             <Information />
+            <Navbar />
           </Route>
           <Route path='/updatestatus'>
             <UpdateStatus />
+            <Navbar />
           </Route>
           <Route path='/register'>
             <MarketRegister />
+            <Navbar />
           </Route>
           <Route path='/auth'>
             <Authentication />
+            <Navbar />
           </Route>
         </Switch>
-        <Navbar />
       </div>
     </Router>
   );

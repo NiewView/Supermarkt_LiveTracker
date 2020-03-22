@@ -1,0 +1,50 @@
+.splash {
+  top: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.splash__logoimage {
+  height: 25vh;
+  margin-top: 15vh;
+}
+.splash__logotext {
+  height: 25vh;
+  margin-top: 5vh;
+}
+
+.splash {
+  animation: signup-response 0.5s 1;
+  -webkit-animation: signup-response 0.5s 1;
+  animation-fill-mode: forwards;
+
+  animation-delay: 2s;
+  -webkit-animation-delay: 1s; /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signup-response {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes signup-response {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
