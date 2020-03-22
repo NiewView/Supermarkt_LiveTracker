@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 10vh;
+  padding-bottom: 5rem;
 }
 
 .register_page .inputfield {

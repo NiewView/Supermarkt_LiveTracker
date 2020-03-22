@@ -4,66 +4,185 @@
   border-radius: 500px;
   width: 400px;
   max-width: 100%;
-  margin: 24px 0 16px;
   transition: box-shadow 0.2s ease-in-out;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .statusslider {
-    overflow: hidden;
-    height: 40px;
-    -webkit-appearance: none;
-    background-color: #ddd;
-  }
-  .statusslider::-webkit-slider-runnable-track {
-    height: 40px;
-    -webkit-appearance: none;
-    color: #444;
-    transition: box-shadow 0.2s ease-in-out;
-  }
-  .statusslider::-webkit-slider-thumb {
-    width: 40px;
-    -webkit-appearance: none;
-    height: 40px;
-    cursor: ew-resize;
-    background: #fff;
-    box-shadow: -340px 0 0 320px #087917, inset 0 0 0 40px #087917;
-    border-radius: 50%;
-    transition: box-shadow 0.2s ease-in-out;
-    position: relative;
-  }
-  .statusslider:active::-webkit-slider-thumb {
-    background: #fff;
-    box-shadow: -340px 0 0 320px #087917, inset 0 0 0 3px #087917;
-  }
+
+input[type="range"].statusslider--green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #087917;
+  margin-top: -4px;
 }
-.statusslider::-moz-range-progress {
-  background-color: #43e5f7;
+input[type="range"].statusslider--green::-ms-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #087917;
+  margin-top: -4px;
 }
-.statusslider::-moz-range-track {
-  background-color: #9a905d;
+input[type="range"].statusslider--green::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #087917;
+  margin-top: -4px;
 }
-.statusslider::-ms-fill-lower {
-  background-color: #43e5f7;
+input[type="range"].statusslider--yellow::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ead730;
+  margin-top: -4px;
 }
-.statusslider::-ms-fill-upper {
-  background-color: #9a905d;
+input[type="range"].statusslider--yellow::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ead730;
+  margin-top: -4px;
+}
+input[type="range"].statusslider--yellow::-ms-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ead730;
+  margin-top: -4px;
+}
+input[type="range"].statusslider--red::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ca4141;
+  margin-top: -4px;
+}
+input[type="range"].statusslider--red::-ms-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ca4141;
+  margin-top: -4px;
+}
+input[type="range"].statusslider--red::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ca4141;
+  margin-top: -4px;
 }
 
-.statusslider.statusslider--green::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #087917, inset 0 0 0 40px #087917;
+input[type="range"] {
+  /*removes default webkit styles*/
+  -webkit-appearance: none;
+  /*fix for FF unable to apply focus style bug */
+  border: 1px solid white;
+  /*required for proper track sizing in FF*/
+  width: 300px;
 }
-.statusslider.statusslider--green:active::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #087917, inset 0 0 0 3px #087917;
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
 }
-.statusslider.statusslider--yellow::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #ead730, inset 0 0 0 40px #ead730;
+
+/* input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #ead730;
+  margin-top: -4px;
+} */
+
+input[type="range"]:focus {
+  outline: none;
 }
-.statusslider.statusslider--yellow:active::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #ead730, inset 0 0 0 3px #ead730;
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
 }
-.statusslider.statusslider--red::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #ca4141, inset 0 0 0 40px #ca4141;
+
+input[type="range"]::-moz-range-track {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
 }
-.statusslider.statusslider--red:active::-webkit-slider-thumb {
-  box-shadow: -340px 0 0 320px #ca4141, inset 0 0 0 3px #ca4141;
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  /* background: #ead730; */
+}
+*/
+
+
+/*hide the outline behind the border*/
+
+input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+input[type="range"]::-ms-track {
+  width: 300px;
+  height: 5px;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #777;
+  border-radius: 10px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+input[type="range"]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  /* background: #ead730; */
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: #888;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: #ccc;
 }

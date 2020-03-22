@@ -77,7 +77,7 @@ export const UpdateStatus = () => {
   const renderSlider = () => {
     if (selectedMarket != null && selectedMarket.Status != null) {
       return (
-        <div>
+        <div className='updatestatus'>
           <img
             className={[
               "status_image",
@@ -103,7 +103,7 @@ export const UpdateStatus = () => {
       );
     } else {
       return (
-        <div>
+        <div className='updatestatus'>
           <img
             className={["status_image", "status_image--null"].join(" ")}
             src={"/assets/person_null.svg"}
