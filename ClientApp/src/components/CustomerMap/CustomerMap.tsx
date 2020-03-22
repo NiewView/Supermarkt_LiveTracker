@@ -59,6 +59,12 @@ export function CustomerMap(props: CustomerMapProps) {
             </CircleMarker>
           );
         })}
+        <CircleMarker
+          key="Home"
+          center={position}
+          color="blue"
+          radius={3}
+        ></CircleMarker>
       </Map>
     </div>
   );
