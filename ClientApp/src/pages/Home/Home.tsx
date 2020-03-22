@@ -1,26 +1,12 @@
 import * as React from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CustomerMap, Button, ButtonTypes } from "../../components/index";
-import { addMarkets } from "../../store/marketActions";
-import { Market, MarketList } from "../../types/Market";
-import Api from "../../Utils/FakeApi";
+import { CustomerMap } from "../../components/index";
 import { RootStateType } from "../../store/index";
+import { MarketList } from "../../types/Market";
 import "./Home.styles.css";
 
 export const Home = () => {
-  const dispatch = useDispatch();
   const markets = useSelector((state: RootStateType) => state.market.markets);
-
-  useEffect(() => {
-    populateMarketData();
-  }, []);
-
-  const populateMarketData = async function() {
-    Api.GetMarketList().then(data => {
-      dispatch(addMarkets(data as Array<Market>));
-    });
-  };
 
   const MarketList: MarketList = {
     Markets: markets

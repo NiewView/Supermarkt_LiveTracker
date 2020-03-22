@@ -18,8 +18,8 @@ export function NavBar(props: NavbarProps) {
     },
     {
       icon: "shopping_cart",
-      href: "/",
-      active_href: ["/"]
+      href: "/home",
+      active_href: ["/", "/home"]
     },
     {
       icon: "account_circle",
@@ -29,8 +29,8 @@ export function NavBar(props: NavbarProps) {
   ];
 
   return (
-    <nav className="navbar">
-      <ul className="navbar__list">
+    <nav className='navbar'>
+      <ul className='navbar__list'>
         {routes.map(item => {
           return (
             <li
@@ -41,11 +41,11 @@ export function NavBar(props: NavbarProps) {
               key={item.href}
             >
               <Button
-                className="navbar__button"
+                className='navbar__button'
                 Type={ButtonTypes.Link}
                 href={item.href}
               >
-                <span className="material-icons">{item.icon}</span>
+                <span className='material-icons'>{item.icon}</span>
               </Button>
             </li>
           );
