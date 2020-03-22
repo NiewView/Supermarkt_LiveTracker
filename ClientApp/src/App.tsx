@@ -9,28 +9,45 @@ import {
   UpdateStatus,
   Information
 } from "./pages/index";
+import { useDispatch, useSelector } from "react-redux";
+import { addMarkets } from "./store/marketActions";
+import Api from "./Utils/FakeApi";
+import { Market } from "./types/Market";
 
-export const App = () => (
-  <Router>
-    <div>
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/about'>
-          <Information />
-        </Route>
-        <Route path='/updatestatus'>
-          <UpdateStatus />
-        </Route>
-        <Route path='/register'>
-          <MarketRegister />
-        </Route>
-        <Route path='/auth'>
-          <Authentication />
-        </Route>
-      </Switch>
-      <Navbar />
-    </div>
-  </Router>
-);
+export const App = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    populateMarketData();
+  }, []);
+
+  const populateMarketData = async function() {
+    Api.GetMarketList().then(data => {
+      dispatch(addMarkets(data as Array<Market>));
+    });
+  };
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/about'>
+            <Information />
+          </Route>
+          <Route path='/updatestatus'>
+            <UpdateStatus />
+          </Route>
+          <Route path='/register'>
+            <MarketRegister />
+          </Route>
+          <Route path='/auth'>
+            <Authentication />
+          </Route>
+        </Switch>
+        <Navbar />
+      </div>
+    </Router>
+  );
+};
