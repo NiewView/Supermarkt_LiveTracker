@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 25vh;
+  padding-bottom: 5rem;
 }
 
 .login_page .inputfield {

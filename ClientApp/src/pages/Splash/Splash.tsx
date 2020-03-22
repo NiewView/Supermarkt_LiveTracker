@@ -18,7 +18,7 @@ export const Splash = () => {
         ></img>
         <img
           className={["splash__logotext"].join(" ")}
-          src={"/assets/schrift_wir_vs_virus1.svg"}
+          src={"/assets/Sicher_Einkaufen_Schrift.svg"}
         ></img>
       </div>
     );
