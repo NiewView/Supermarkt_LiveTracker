@@ -30,7 +30,9 @@
 
 .navbar__button {
   display: inline-block;
-  min-width: 5rem;
+  min-width: 4rem;
+  width: 5rem;
+  flex-shrink: 1;
   height: 2.5rem;
   padding: 0.4rem;
   background: transparent;

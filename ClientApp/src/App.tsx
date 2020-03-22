@@ -34,7 +34,7 @@ export const App = () => {
           <Route exact path='/'>
             <Splash />
           </Route>
-          <Route exact path='/home'>
+          <Route path='/home'>
             <Home />
             <Navbar />
           </Route>
