@@ -1,21 +1,22 @@
-.login_page {
+.register_page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 35%;
+  padding-top: 10vh;
 }
 
-.login_page .inputfield {
+.register_page .inputfield {
   margin-top: 1rem;
 }
 
-.login_page .button {
+.register_page .button {
   margin-top: 3rem;
 }
 
-.login_page .button--register {
-  margin-top: 1rem;
-  color: #61c4fa;
-  background-color: transparent;
-  text-decoration: underline;
+.register_page .error_message {
+  color: #bd1a1a;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  max-width: 12rem;
+  max-height: 2rem;
 }
