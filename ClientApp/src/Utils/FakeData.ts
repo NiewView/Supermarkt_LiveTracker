@@ -9,7 +9,7 @@ const data = {
           lat: 12.516,
           long: 21.31231
         },
-        Adresse: "StraßeMitHausNummerUndSo",
+        Adresse: "Straße Mit HausNummer Und So",
         Status: 1,
         TimeStamp: "01-01-1970"
       },
@@ -64,7 +64,10 @@ const data = {
     TimeStamp: "01-01-1970"
   },
   Login: {
-    Token: "awdawdawdaw"
+    Token: "fsdafsadjklföjaskldjflkasödjf"
+  },
+  Login__Failed: {
+    Token: ""
   },
   Register: {
     Success: true

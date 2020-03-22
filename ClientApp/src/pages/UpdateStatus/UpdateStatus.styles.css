@@ -6,13 +6,27 @@
 }
 .updatestatus_header__title {
   margin-right: 1rem;
-  color: #333;
+  color: rgb(85, 85, 85);
   font-size: 1rem;
+  max-width: 40vw;
+  overflow: auto;
+}
+
+.login_page .error_message {
+  color: #bd1a1a;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  max-width: 12rem;
+  max-height: 2rem;
 }
 
 .updatestatus_sliderwrapper {
   padding: 2rem;
-  margin-top: 3rem;
+}
+.status_description {
+  font-size: 0.9rem;
+  text-align: center;
+  columns: #707070;
 }
 
 .status_image {
