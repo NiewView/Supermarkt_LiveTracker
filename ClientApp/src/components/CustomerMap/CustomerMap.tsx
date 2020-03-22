@@ -18,8 +18,8 @@ export function CustomerMap(props: CustomerMapProps) {
     <div className={[props.className, "customerMap"].join(" ")}>
       <Map className="customerMap__map" center={position} zoom={15}>
         <TileLayer
-          url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {props.MarketList.Markets.map(market => {
           var CircleColor: string;
@@ -59,6 +59,12 @@ export function CustomerMap(props: CustomerMapProps) {
             </CircleMarker>
           );
         })}
+        <CircleMarker
+          key="Home"
+          center={position}
+          color="blue"
+          radius={3}
+        ></CircleMarker>
       </Map>
     </div>
   );
