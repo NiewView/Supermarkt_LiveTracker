@@ -1,0 +1,21 @@
+.login_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 35%;
+}
+
+.login_page .inputfield {
+  margin-top: 1rem;
+}
+
+.login_page .button {
+  margin-top: 3rem;
+}
+
+.login_page .button--register {
+  margin-top: 1rem;
+  color: #61c4fa;
+  background-color: transparent;
+  text-decoration: underline;
+}

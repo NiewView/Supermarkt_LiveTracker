@@ -38,19 +38,19 @@ export const Authentication = () => {
   }
 
   return (
-    <div className='login_page'>
+    <div className="login_page">
       <InputField
-        placeholder='Username'
+        placeholder="Username"
         Type={InputFieldTypes.Text}
         onChange={value => {
           setUsername(value);
         }}
       />
       <InputField
-        placeholder='Password'
+        placeholder="Password"
         Type={InputFieldTypes.Password}
         onChange={value => {
-          setUsername(value);
+          setPassword(value);
         }}
       />
       <Button
@@ -64,7 +64,7 @@ export const Authentication = () => {
       <Button
         className={"button--register"}
         Type={ButtonTypes.Link}
-        href='/register'
+        href="/register"
       >
         Registrieren
       </Button>
