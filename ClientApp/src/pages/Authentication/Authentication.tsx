@@ -16,6 +16,7 @@ import "./authentication.styles.css";
 export const Authentication = () => {
   let [username, setUsername] = React.useState("");
   let [password, setPassword] = React.useState("");
+  let [errorMessage, setErrorMessage] = React.useState("");
   const currentUser = useSelector(
     (state: RootStateType) => state.user.currentUser
   );
@@ -23,12 +24,16 @@ export const Authentication = () => {
   const populateLoginData = async function() {
     Api.Login(username, password).then(data => {
       let typedData = data as { Token: string };
-      let currentUser: User = {
-        Name: username,
-        Token: typedData.Token,
-        AssociatedMarketId: null
-      };
-      dispatch(loginUser(currentUser));
+      if (typedData.Token == null || typedData.Token === "") {
+        setErrorMessage("Nutzername und Passwort stimmen nicht überein");
+      } else {
+        let currentUser: User = {
+          Name: username,
+          Token: typedData.Token,
+          AssociatedMarketId: null
+        };
+        dispatch(loginUser(currentUser));
+      }
     });
   };
 
@@ -38,21 +43,22 @@ export const Authentication = () => {
   }
 
   return (
-    <div className="login_page">
+    <div className='login_page'>
       <InputField
-        placeholder="Username"
+        placeholder='Nutzername'
         Type={InputFieldTypes.Text}
         onChange={value => {
           setUsername(value);
         }}
       />
       <InputField
-        placeholder="Password"
+        placeholder='Password'
         Type={InputFieldTypes.Password}
         onChange={value => {
           setPassword(value);
         }}
       />
+      <div className='error_message'>{errorMessage}</div>
       <Button
         Type={ButtonTypes.Confirm}
         onClick={() => {
@@ -64,7 +70,7 @@ export const Authentication = () => {
       <Button
         className={"button--register"}
         Type={ButtonTypes.Link}
-        href="/register"
+        href='/register'
       >
         Registrieren
       </Button>

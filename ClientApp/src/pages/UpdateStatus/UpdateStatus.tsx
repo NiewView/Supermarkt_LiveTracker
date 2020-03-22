@@ -13,6 +13,13 @@ import Api from "../../Utils/FakeApi";
 import { User } from "../../types/User";
 import "./UpdateStatus.styles.css";
 
+export const statusTexts = [
+  "Der Nutzer ist keinem verfügbaren Markt zugeordnet",
+  "Hier ist gerade fast nichts los",
+  "Es sind ein paar Leute da",
+  "Es ist voll, bitte kommen Sie zu einem späteren Zeitpunkt"
+];
+
 export const UpdateStatus = () => {
   const currentUser = useSelector(
     (state: RootStateType) => state.user.currentUser
@@ -67,10 +74,52 @@ export const UpdateStatus = () => {
     }
   };
 
+  const renderSlider = () => {
+    if (selectedMarket != null && selectedMarket.Status != null) {
+      return (
+        <div>
+          <img
+            className={[
+              "status_image",
+              "status_image--" + selectedMarket.Status
+            ].join(" ")}
+            src={"/assets/person_" + selectedMarket.Status + ".svg"}
+          ></img>
+          <StatusSlider
+            step={1}
+            min={1}
+            max={3}
+            onChange={value => setStatus(value)}
+            value={
+              selectedMarket && selectedMarket.Status
+                ? selectedMarket.Status
+                : 0
+            }
+          />
+          <div className='status_description'>
+            {statusTexts[selectedMarket.Status]}
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <img
+            className={["status_image", "status_image--null"].join(" ")}
+            src={"/assets/person_null.svg"}
+          ></img>
+          <div className='status_description'>{statusTexts[0]}</div>
+        </div>
+      );
+    }
+  };
+
   return (
     <AuthorizedPage>
-      <header className="updatestatus_header">
-        <h1 className="updatestatus_header__title">Lidl</h1>
+      <header className='updatestatus_header'>
+        <h1 className='updatestatus_header__title'>
+          {selectedMarket?.Adresse}
+        </h1>
         <Button
           Type={ButtonTypes.Confirm}
           onClick={() => {
@@ -81,38 +130,7 @@ export const UpdateStatus = () => {
         </Button>
       </header>
 
-      <section className="updatestatus_sliderwrapper">
-        {selectedMarket != null && selectedMarket.Status != null ? (
-          <div>
-            <img
-              className={[
-                "status_image",
-                "status_image--" + selectedMarket.Status
-              ].join(" ")}
-              src={"/assets/person_" + selectedMarket.Status + ".svg"}
-            ></img>
-            <StatusSlider
-              step={1}
-              min={1}
-              max={3}
-              onChange={value => setStatus(value)}
-              value={
-                selectedMarket && selectedMarket.Status
-                  ? selectedMarket.Status
-                  : 0
-              }
-            />
-          </div>
-        ) : (
-          <div>
-            <img
-              className={["status_image", "status_image--null"].join(" ")}
-              src={"/assets/person_null.svg"}
-            ></img>
-            <div>Der Nutzer ist keinem verfügbaren Markt zugeordnet</div>
-          </div>
-        )}
-      </section>
+      <section className='updatestatus_sliderwrapper'>{renderSlider()}</section>
     </AuthorizedPage>
   );
 };
