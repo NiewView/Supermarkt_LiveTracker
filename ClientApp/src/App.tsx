@@ -1,12 +1,13 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import { FetchData, Navbar } from "./components/index";
+import "babel-polyfill";
+import { Navbar } from "./components/index";
 import {
   Authentication,
   Home,
   MarketRegister,
-  UpdateStatus
+  UpdateStatus,
+  Information
 } from "./pages/index";
 
 export const App = () => (
@@ -17,7 +18,7 @@ export const App = () => (
           <Home />
         </Route>
         <Route path='/about'>
-          <FetchData />
+          <Information />
         </Route>
         <Route path='/updatestatus'>
           <UpdateStatus />
