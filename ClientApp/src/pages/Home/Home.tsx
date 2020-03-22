@@ -7,17 +7,33 @@ import "./Home.styles.css";
 
 export const Home = () => {
   const markets = useSelector((state: RootStateType) => state.market.markets);
+  let [position, setPosition] = React.useState({
+    lat: 52.520008,
+    long: 13.404954
+  });
 
   const MarketList: MarketList = {
     Markets: markets
   };
 
+  React.useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        setPosition({
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        });
+        console.log({
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        });
+      });
+    }
+  }, []);
+
   return (
     <div className='Home'>
-      <CustomerMap
-        MarketList={MarketList}
-        MapCenter={{ lat: 52.520008, long: 13.404954 }}
-      />
+      <CustomerMap MarketList={MarketList} MapCenter={position} />
     </div>
   );
 };
