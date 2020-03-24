@@ -16,9 +16,9 @@ export function CustomerMap(props: CustomerMapProps) {
 
   return (
     <div className={[props.className, "customerMap"].join(" ")}>
-      <Map className="customerMap__map" center={position} zoom={15}>
+      <Map className='customerMap__map' center={position} zoom={15}>
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         {props.MarketList.Markets.map(market => {
@@ -48,21 +48,22 @@ export function CustomerMap(props: CustomerMapProps) {
               radius={5}
             >
               <Popup>
-                {market.Name}
-                <br></br>
-                {market.Company}
-                <br></br>
-                {market.Adresse}
-                <br></br>
-                {market.TimeStamp}
+                <strong>Hierbei handelt es sich nur um Testdaten</strong>
+                Name: {market.Name}
+                <br />
+                Firma: {market.Company}
+                <br />
+                Adresse: {market.Adresse}
+                <br />
+                Letztes Update: {market.TimeStamp}
               </Popup>
             </CircleMarker>
           );
         })}
         <CircleMarker
-          key="Home"
+          key='Home'
           center={position}
-          color="blue"
+          color='blue'
           radius={3}
         ></CircleMarker>
       </Map>
