@@ -38764,6 +38764,24 @@ const data = {
         Adresse: null,
         Status: 3,
         TimeStamp: "jetzt"
+      },
+      {
+        Id: 1775032649,
+        GPSLocation: { lat: 48.11092, long: 11.529952 },
+        Name: "Penny",
+        Company: "Penny",
+        Adresse: "Konrad-Celtis-Straße 33A; 81369 München",
+        Status: 1,
+        TimeStamp: "jetzt"
+      },
+      {
+        Id: 2,
+        GPSLocation: { lat: 48.11661, long: 11.525801 },
+        Name: "Rewe",
+        Company: "Rewe",
+        Adresse: "Partnachpl. 181373 München",
+        Status: 3,
+        TimeStamp: "jetzt"
       }
     ]
   },
